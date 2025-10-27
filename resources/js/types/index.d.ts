@@ -41,3 +41,17 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export interface BakedGood {
+    id: number;
+    name: string;
+    category: string;
+    price: number;
+    description: string;
+    image: string;
+    in_stock: boolean;
+}
+
+export interface BakedGoodResource {
+    data: BakedGood[];
+}
