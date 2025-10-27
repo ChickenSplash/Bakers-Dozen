@@ -6,12 +6,6 @@ use Inertia\Inertia;
 use Laravel\Fortify\Features;
 
 Route::get('/', [BakedGoodController::class, 'home'])->name('home');
-Route::get('/products', [BakedGoodController::class, 'index'])->name('home');
-
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
-});
+Route::get('/products', [BakedGoodController::class, 'index'])->name('index');
 
 require __DIR__.'/settings.php';

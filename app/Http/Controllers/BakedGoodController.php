@@ -16,7 +16,9 @@ class BakedGoodController extends Controller
     public function home()
     {
         return Inertia::render('BakedGoods/home', [
-            'bakedGoods' => BakedGood::with('category')->get(),
+            'bakedGoods' => BakedGoodResource::collection(
+                BakedGood::with('category')->get(),
+            ),
         ]);
     }
 

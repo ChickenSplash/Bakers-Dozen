@@ -24,6 +24,16 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+        User::firstOrCreate(
+            ['email' => 'admin@example.com'],
+            [
+                'name' => 'Admin',
+                'password' => 'password',
+                'email_verified_at' => now(),
+                'is_admin' => true,
+            ]
+        );
+
         $this->call([
             CategorySeeder::class,
             BakedGoodSeeder::class,
