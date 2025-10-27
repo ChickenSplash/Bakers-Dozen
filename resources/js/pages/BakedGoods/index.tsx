@@ -1,9 +1,9 @@
-import { BakedGood } from "@/types";
+import { BakedGoodResource } from "@/types";
 
-export default function Index({bakedGoods}: {bakedGoods: BakedGood[]}) {
+export default function Home({bakedGoods}: {bakedGoods: BakedGoodResource}) {
     return (
         <div>
-            <h1>Baked Goods</h1>
+            <h1>Baked Goods List</h1>
             <pre>{JSON.stringify(bakedGoods, null, 2)}</pre>
         </div>
     );

@@ -10,8 +10,8 @@ class BakedGood extends Model
     /** @use HasFactory<\Database\Factories\BakedGoodFactory> */
     use HasFactory;
 
-    public function bakedGoods()
+    public function category()
     {
-        return $this->hasMany(BakedGood::class);
+        return $this->belongsTo(Category::class);
     }
 }

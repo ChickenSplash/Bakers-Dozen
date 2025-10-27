@@ -50,6 +50,8 @@ export interface BakedGood {
     description: string;
     image: string;
     in_stock: boolean;
-    created_at: string;
-    updated_at: string;
+}
+
+export interface BakedGoodResource {
+    data: BakedGood[];
 }

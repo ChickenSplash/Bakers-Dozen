@@ -5,17 +5,30 @@ namespace App\Http\Controllers;
 use App\Models\BakedGood;
 use App\Http\Requests\StoreBakedGoodRequest;
 use App\Http\Requests\UpdateBakedGoodRequest;
+use App\Http\Resources\BakedGoodResource;
 use Inertia\Inertia;
 
 class BakedGoodController extends Controller
 {
+    /**
+     * Home page
+     */
+    public function home()
+    {
+        return Inertia::render('BakedGoods/home', [
+            'bakedGoods' => BakedGood::with('category')->get(),
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         return Inertia::render('BakedGoods/index', [
-            'bakedGoods' => BakedGood::all(),
+            'bakedGoods' =>  BakedGoodResource::collection(
+                BakedGood::with('category')->get(),
+            ),
         ]);
     }
 
