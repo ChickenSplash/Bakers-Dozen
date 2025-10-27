@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BakedGood;
 use App\Http\Requests\StoreBakedGoodRequest;
 use App\Http\Requests\UpdateBakedGoodRequest;
+use Inertia\Inertia;
 
 class BakedGoodController extends Controller
 {
@@ -13,7 +14,9 @@ class BakedGoodController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('BakedGoods/index', [
+            'bakedGoods' => BakedGood::all(),
+        ]);
     }
 
     /**
