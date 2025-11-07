@@ -1,3 +1,4 @@
+import DefaultLayout from "@/layouts/app/bakers-dozen-layout";
 import { login, register } from "@/routes";
 import { BakedGoodResource, SharedData } from "@/types";
 import { Head, Link, usePage } from "@inertiajs/react";
@@ -6,8 +7,8 @@ export default function Home({bakedGoods}: {bakedGoods: BakedGoodResource}) {
     const { auth } = usePage<SharedData>().props;
 
     return (
-        <>
-            <Head title="Welcome">
+        <DefaultLayout>
+            <Head title="Home">
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link
                     href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600"
@@ -31,6 +32,6 @@ export default function Home({bakedGoods}: {bakedGoods: BakedGoodResource}) {
                 <pre>{JSON.stringify(bakedGoods, null, 2)}</pre>
                 {/* Use bakedGoods to iterate and display baked goods here. */}
             </div>
-        </>
+        </DefaultLayout>
     );
 }
